@@ -1,0 +1,18 @@
+---
+title: "Parallel Computing with R"
+author: "Debaleena Sain"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+install.packages("parallel")
+install.packages("doParallel")
+library(parallel)
+library(doParallel)
+
+
+
+```
