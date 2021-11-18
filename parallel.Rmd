@@ -14,5 +14,50 @@ library(parallel)
 library(doParallel)
 
 
+#################### For Windows Operating System ##################
+
+
+### Detect the number of CPU cores in your computer ###
+
+ncores <- detectCores(logical = TRUE)
+ncores
+
+### Create a cluster using the cores ###
+
+cl <- makeCluster(ncores - 1)
+registerDoParallel( cl )
+
+
+### Write a function that you want to run parallelly ###
+
+myFunc <- function(r) {}
+
+
+### Generate the data on which you want to run the function ###
+
+# *** generate data with object name "data" ***
+
+### Export the items within your cluster ###
+
+clusterExport(cl, list('myFunc', 'data'))
+
+
+### Parallel Computing ###
+
+results <- c(parlapply( cl, 1:r, myFunc ))
+
+
+
+
+
+
+
+############### For Linux ########################
+results <- mclapply()
+
+
+
+
+
 
 ```
