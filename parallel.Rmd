@@ -44,16 +44,11 @@ clusterExport(cl, list('myFunc', 'data'))
 
 ### Parallel Computing ###
 
-results <- c(parlapply( cl, 1:r, myFunc ))
+## For Windows
+results <- c(parLapply( cl, 1:r, myFunc ))
 
-
-
-
-
-
-
-############### For Linux ########################
-results <- mclapply()
+## For Linux
+results <- mclapply(1:r, myFunc, mc.cores=ncores)
 
 
 
